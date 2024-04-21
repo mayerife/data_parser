@@ -1,0 +1,131 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: white; 
+}
+
+
+.login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.logo {
+  width: 100px;
+}
+
+.content {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.input-fields {
+  margin-bottom: 20px;
+}
+
+.input-fields input {
+  margin-bottom: 10px;
+}
+
+.login-button {
+  background-color: green;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background-color: darkgreen;
+}
+
+/* Стили для ссылки на страницу регистрации */
+h2 a {
+  color: blue;
+  text-decoration: none;
+}
+
+h2 a:hover {
+  text-decoration: underline;
+}
+
+.registration-form {
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  width: 100%;
+  background-color: green;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 100px;
+  margin-left: 40px; 
+}
+
+.home-link {
+  margin-right: 40px; 
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.content {
+  background-color: white; 
+  width: 2000px; /* Ширина содержимого формы */
+  min-height: 100%; 
+}
+
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Пространство между колонками */
+}
+
+.form-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-column input {
+  margin-bottom: 10px;
+  width: 500px;
+  height: 50px;
+}
+
+.register-button {
+  width: 200px;
+  background-color: green;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.register-button:hover {
+  background-color: darkgreen;
+}
+
+.parsing-page-content {
+  display: flex;
+  background-color: white; 
+  justify-content: center;
+  gap: 200px; /* Пространство между колонками */
+}
