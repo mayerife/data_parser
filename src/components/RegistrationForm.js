@@ -5,11 +5,11 @@ function RegistrationForm() {
   return (
     <div className="registration-form">
       <div className="header">
-        <img src="public/assets/image3.png" alt="Логотип компании" className="logo" />
-        <Link to="/" className="home-link">Вход</Link>
+      <img src={require('./assets/image2.png')} alt="Логотип компании" className="logo" />
+        <Link to="/" className="home-link">Уже есть аккаунт? Войти</Link>
       </div>
       <div className="content">
-        <h2>РЕГИСТРАЦИЯ</h2>
+        <p className='biggest-text'>РЕГИСТРАЦИЯ</p>
         <div className="form-wrapper">
           <div className="form-column">
             <input type="text" placeholder="Имя" />
@@ -22,7 +22,9 @@ function RegistrationForm() {
             <input type="password" placeholder="Пароль" />
           </div>
         </div>
-        <button className="register-button">Зарегистрироваться</button>
+        <Link to="/parsing">
+            <button className="register-button">Зарегистрироваться</button>
+        </Link>
       </div>
     </div>
   );

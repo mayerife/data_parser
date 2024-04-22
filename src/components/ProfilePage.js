@@ -7,28 +7,32 @@ function ProfilePage() {
   return (
     <div className="profile-page">
         <div className="header">
-      <img src="public/assets/image3.png" alt="Логотип компании" className="logo" />
+        <img src={require('./assets/image2.png')} alt="Логотип компании" className="logo" />
       <Link to="/parsing" className="home-link">Парсинг</Link>
-      <Link to="/profile" className="home-link">Личный кабинет</Link>
       </div>
-      <h2>ЛИЧНЫЙ КАБИНЕТ</h2>
+      <div className='profile-page-content'>
+      <h2 className="content">ЛИЧНЫЙ КАБИНЕТ</h2>
       <div className="profile-fields">
         <div className="field">
-          <label htmlFor="fullName">ФИО:</label>
-          <input type="text" id="fullName" />
+          <input type="text" id="fullName" placeholder="Имя, фамилия"/>
         </div>
         <div className="field">
-          <label htmlFor="position">Должность:</label>
-          <input type="text" id="position" />
+          <input type="text" id="position" placeholder="Должность"/>
         </div>
         <div className="field">
-          <label htmlFor="phoneNumber">Номер телефона:</label>
-          <input type="tel" id="phoneNumber" />
-        </div>
+          <input type="tel" id="phoneNumber" placeholder="Номер телефона"/>
+          </div>
+          <div className="field">
+          <input type="email" id="email" placeholder="Почта"/>
+          </div>
         <button className="save-button">Сохранить</button>
+        <Link to="/">
+            <button className="save-button">Выйти из аккаунта</button>
+        </Link>
       </div>
       <h3>Избранные запросы</h3>
       <FavoriteQueries />
+    </div>
     </div>
   );
 }

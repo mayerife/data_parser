@@ -5,13 +5,17 @@ function LoginPage() {
   return (
     <div className="login-page">
       <div className="header">
-      <img src="public/assets/image3.png" alt="Логотип компании" className="logo" />
+      <img src={require('./assets/image2.png')} alt="Логотип компании" className="logo" />
       </div>
       <div className="content">
-        <h2>Войдите в аккаунт, чтобы продолжить</h2>
-        <h2>Нет аккаунта? <Link to="/registration">Регистрация</Link></h2>
+        <div className='bigger-text'>
+        <p>Войдите в аккаунт, чтобы продолжить</p>
+        <p>Нет аккаунта? <Link to="/registration">Регистрация</Link></p>
+        </div>
         <div className="input-fields">
+        <div>
           <input type="text" placeholder="Логин" />
+        </div>
           <input type="password" placeholder="Пароль" />
         </div>
         <Link to="/parsing">

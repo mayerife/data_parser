@@ -3,50 +3,67 @@ import { Link } from 'react-router-dom';
 
 
 function LeftColumn() {
-  const [categories, setCategories] = useState([]);
-  const [query, setQuery] = useState('');
-  const [searchCategories, setSearchCategories] = useState('');
-  const [rowCount, setRowCount] = useState('');
+    const [categories, setCategories] = useState([]);
+    const [searchCategories, setSearchCategories] = useState('');
+  
+    const handleAddCategory = () => {
+      if (searchCategories.trim() !== '') {
+        setCategories([...categories, searchCategories]);
+        setSearchCategories('');
+      }
+    };
+  
+    const handleRemoveCategory = (indexToRemove) => {
+      setCategories(categories.filter((_, index) => index !== indexToRemove));
+    };
 
-  const handleAddCategory = () => {
-    if (searchCategories.trim() !== '') {
-      setCategories([...categories, searchCategories]);
-      setSearchCategories('');
-    }
-  };
-
-  return (
-    <div className="left-column">
-      <h2>Парсинг</h2>
-      <div className="field">
-        <label htmlFor="query">Запрос:</label>
-        <input type="text" id="query" value={query} onChange={(e) => setQuery(e.target.value)} />
-      </div>
-      <div className="field">
-        <label htmlFor="searchCategories">Категории поиска:</label>
-        <div className="category-input">
-          <input type="text" id="searchCategories" value={searchCategories} onChange={(e) => setSearchCategories(e.target.value)} />
-          <button onClick={handleAddCategory}>+</button>
+    
+  
+    return (
+        <div className="left-column">
+          <p className='biggest-text'>Парсинг</p>
+          <div className="field border">
+            <label htmlFor="query">Запрос</label>
+            <input type="text" id="query" />
+          </div>
+          <div className='border'>
+          <div className="field">
+            <label htmlFor="searchCategories">Категории поиска</label>
+            <div className="category-input">
+              <input
+                type="text"
+                id="searchCategories"
+                value={searchCategories}
+                onChange={(e) => setSearchCategories(e.target.value)}
+              />
+              <button onClick={handleAddCategory}>+</button>
+            </div>
+          </div>
+          <div className="category-list">
+            {categories.map((category, index) => (
+              <div key={index} className="category">
+                {category}
+                <span className="remove-category" onClick={() => handleRemoveCategory(index)}>✖</span>
+              </div>
+            ))}
+          </div>
+          </div>
+          <div className="field border">
+            <label htmlFor="Count">Количество выводимых строк</label>
+            <input type="number" id="Count" min="1" inputmode="numeric"/>
+          </div>
+          <button className="start-parsing-button">Начать парсинг</button>
         </div>
-        <div className="added-categories">
-          {categories.map((category, index) => (
-            <div key={index}>{category}</div>
-          ))}
-        </div>
-      </div>
-      <div className="field">
-        <label htmlFor="rowCount">Количество выводимых строк:</label>
-        <input type="number" id="rowCount" value={rowCount} onChange={(e) => setRowCount(e.target.value)} />
-      </div>
-      <button className="start-parsing-button">Начать парсинг</button>
-    </div>
-  );
-}
+      );
+  }
+  
+  
 
 function RightColumn() {
     return (
       <div className="right-column">
-        <h2>Предпросмотр</h2>
+        <p className='biggest-text'>Предпросмотр</p>
+        <div className="favorite-queries border">
         <table>
           <thead>
             <tr>
@@ -68,7 +85,10 @@ function RightColumn() {
             </tr>
           </tbody>
         </table>
+        </div>
+        <div>
         <button className="favorite-button">В избранное</button>
+        </div>
         <button className="download-button">Скачать</button>
       </div>
     );
@@ -78,11 +98,10 @@ function RightColumn() {
     return (
       <div className="parsing-page">
         <div className="header">
-      <img src="public/assets/image3.png" alt="Логотип компании" className="logo" />
-      <Link to="/" className="home-link">Вход</Link>
+        <img src={require('./assets/image2.png')} alt="Логотип компании" className="logo" />
       <Link to="/profile" className="home-link">Личный кабинет</Link>
       </div>
-      <div className="parsing-page-content">
+      <div className="parsing-page-content ">
         <LeftColumn />
         <RightColumn />
       </div>
